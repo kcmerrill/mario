@@ -5,16 +5,9 @@ import (
 	"testing"
 )
 
-func n() *Mario {
-	return New([]string{"mario"})
-}
-
-func nRemote() *Mario {
-	return New([]string{"alfred", "kcmerrill/alfred"})
-}
-
-func TestNew(t *testing.T) {
+func TestLoaderLocal(t *testing.T) {
 	m := n()
+
 	if m.Name != "mario" {
 		t.Logf("The name of this applicaton should be mario")
 		t.FailNow()
@@ -26,7 +19,7 @@ func TestNew(t *testing.T) {
 	}
 }
 
-func TestNewRemote(t *testing.T) {
+func TestLoaderRemote(t *testing.T) {
 	m := nRemote()
 	if m.Name != "alfred" {
 		t.Logf("The name of this applicaton should be alfred ;)")
