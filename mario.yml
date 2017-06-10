@@ -1,7 +1,25 @@
 tdd:
   summary: Test Driven Development
 
-
+#pipeline -> stages -> jobs -> tasks
 workbench:
-  install:
-    
+  summary: Workbench summary would go here
+  - install:
+      summary: Workbench::install summary would go here
+      widgets: git clone widgets
+      plugin: git clone wordpress plugin
+      service: git clone wordpress service
+  - login:
+      summary: Login to docker registry
+      dir: /tmp
+      retry: 3
+
+      login: docker login -u username
+  - build.images:
+      _summary: Build docker images
+      service: docker build -t workbench/service  .
+      workbench: docker build -t workbench/workbench .
+  - push.images:
+      _summary: Push the docker images 
+      workbench: docker push workbench/workbench
+      service: docker push workbench/service

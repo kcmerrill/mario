@@ -1,0 +1,17 @@
+install
+- clone repos
+- pull images
+- create docker network
+
+login
+- login to docker
+
+build
+- build all the docker images
+    services
+
+dev
+ - start all the containers
+ 
+nuke
+- destroy all containers
