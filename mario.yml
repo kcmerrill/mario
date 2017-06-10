@@ -16,10 +16,8 @@ workbench:
 
       login: docker login -u username
   - build.images:
-      _summary: Build docker images
-      service: docker build -t workbench/service  .
       workbench: docker build -t workbench/workbench .
   - push.images:
-      _summary: Push the docker images 
+      summary: Push the docker images 
       workbench: docker push workbench/workbench
       service: docker push workbench/service
