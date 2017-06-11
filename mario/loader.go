@@ -5,7 +5,6 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
-	"path"
 	"path/filepath"
 	"strings"
 )
@@ -51,7 +50,7 @@ func (m *Mario) load(file string) ([]byte, error) {
 					return instructions, nil
 				}
 			}
-			dir = path.Dir(dir)
+			dir = filepath.Dir(dir)
 			if dir == "/" || dir == "C:\\" {
 				// We've gone too far ...
 				break
